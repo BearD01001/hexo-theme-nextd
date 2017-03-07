@@ -1,3 +1,5 @@
+<a class="site-home" href="{{ config.root }}">{{ config.title }}</a>
+
 <div class="site-meta {% if theme.custom_logo.enabled %}custom-logo{% endif %}">
   {% if theme.custom_logo.image and theme.scheme === 'Muse' %}
     <div class="site-meta-headline">
@@ -9,11 +11,11 @@
   {% endif %}
 
   <div class="custom-logo-site-title">
-    <a href="{{ config.root }}"  class="brand" rel="start">
+    <div href="{{ config.root }}"  class="brand">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">{{ config.title }}</span>
       <span class="logo-line-after"><i></i></span>
-    </a>
+    </div>
   </div>
   <p class="site-subtitle">{{ config.subtitle }}</p>
 </div>
@@ -27,7 +29,7 @@
 </div>
 
 <nav class="site-nav">
-  {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || config.search %}
+  {% set hasSearch = theme.swiftype_key || theme.tinysou_Key || config.search %}
 
   {% if theme.menu %}
     <ul id="menu" class="menu">
@@ -47,7 +49,7 @@
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}
             <a href="javascript:;" class="st-search-show-outputs">
-          {% elseif config.search %}
+          {% elseif config.search || theme.algolia_search.enable %}
             <a href="javascript:;" class="popup-trigger">
           {% endif %}
             {% if theme.menu_icons.enable %}
@@ -67,4 +69,3 @@
   {% endif %}
 </nav>
 
-{% include '../_custom/header.swig' %}
