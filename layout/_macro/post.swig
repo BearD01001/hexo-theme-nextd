@@ -149,7 +149,7 @@
 
       {% if is_index %}
         {% if post.cover %}
-          <img src="{{ url_for(post.path) }}{{ post.cover }}" class="full-image">
+          <img src="{{ post.cover }}" class="full-image">
           {{ post.excerpt }}
           <div class="post-more-link text-center">
             <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#more{% endif %}" rel="contents">
