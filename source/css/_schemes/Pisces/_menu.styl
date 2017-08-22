@@ -30,7 +30,6 @@
 .menu .menu-item {
   display: block;
   margin: 0;
-  list-style: none;
 
   a {
     position: relative;
@@ -92,7 +91,13 @@
 }
 
 .site-nav-toggle {
-  top: 7px;
-  right: 10px;
-  left: auto;
+  left: 20px;
+  top: 50%;
+
+  -webkit-transform:  translateY(-50%);
+  transform:  translateY(-50%);
+
+  +tablet() {
+    display: block;
+  }
 }
